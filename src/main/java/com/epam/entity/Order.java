@@ -1,8 +1,6 @@
 package com.epam.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,7 +8,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "order_table")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Order {
@@ -23,4 +22,5 @@ public class Order {
     private int quantity;
 
     private double price;
+
 }

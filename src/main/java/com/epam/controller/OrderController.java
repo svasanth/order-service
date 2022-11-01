@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.concurrent.ExecutionException;
+
 @RestController
 @RequestMapping("/order")
 public class OrderController {
@@ -21,10 +23,8 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping("/bookOrder")
-    public TransactionResponse bookOrder(@RequestBody TransactionRequest request){
+    public TransactionResponse bookOrder(@RequestBody TransactionRequest request) throws ExecutionException, InterruptedException {
 
         return orderService.saveOrder(request);
     }
-
-
 }
